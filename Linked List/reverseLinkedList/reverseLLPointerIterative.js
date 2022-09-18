@@ -110,6 +110,18 @@ class singlyLinkedList {
         }
     }
 
+    reverseLLPointerIterative() {
+        let prev = null;
+        let curr = this.head;
+        while(curr != null) {
+            let temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        this.head = prev;
+    }
+
 
     printLinkedList() {
         let current = this.head;
@@ -118,7 +130,7 @@ class singlyLinkedList {
         // or current is truthy i.e. current != null
         while (current) {
             // console.log(current)
-            console.log(current);
+            console.log(current.data);
             current = current.next; // update current to next node
         }
     }
@@ -130,21 +142,12 @@ class singlyLinkedList {
 
 const ll = new singlyLinkedList();
 
-// ll.insertAtStart(2);
-// ll.insertAtEnd(3);
-// ll.insertAtStart(5);
-// ll.insertAtIndex(10, 1);
-// ll.insertAtStart(7);
-// ll.printLinkedList();
-// console.log("_*_")
-// ll.removeAtStart();
-// ll.removeAt(1);
-
-
 ll.insertAtEnd(3);
 ll.insertAtEnd(5);
 ll.insertAtEnd(7);
-
+ll.printLinkedList();
+ll.reverseLLPointerIterative();
+console.log("-------------------");
 ll.printLinkedList();
 
 ll.size();

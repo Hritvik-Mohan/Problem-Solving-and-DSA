@@ -6,8 +6,8 @@ class Node {
     }
 }
 
-// Singly Linked List
-class singlyLinkedList {
+// Linked List
+class LinkedList {
     constructor() {
         this.head = null;
         this.length = 0;
@@ -110,6 +110,14 @@ class singlyLinkedList {
         }
     }
 
+    getHead() {
+        if (this.head != null) {
+            // it is not empty
+            return this.head.data;
+        }
+        return undefined; // in case of empty LL
+    }
+
 
     printLinkedList() {
         let current = this.head;
@@ -128,23 +136,33 @@ class singlyLinkedList {
     }
 }
 
-const ll = new singlyLinkedList();
+class Stack {
+    constructor() {
+        this.ll = new LinkedList();
+    }
 
-// ll.insertAtStart(2);
-// ll.insertAtEnd(3);
-// ll.insertAtStart(5);
-// ll.insertAtIndex(10, 1);
-// ll.insertAtStart(7);
-// ll.printLinkedList();
-// console.log("_*_")
-// ll.removeAtStart();
-// ll.removeAt(1);
+    push(x) {
+        // insert an element x in the stack
+        this.ll.insertAtStart(x);
+    }
 
+    pop() {
+        // remove the last added element from the stack
+        this.ll.removeAtStart();
+    }
 
-ll.insertAtEnd(3);
-ll.insertAtEnd(5);
-ll.insertAtEnd(7);
+    top() {
+        // This function will help us to get the top most element of the stack
+        return this.ll.getHead();
+    }
+}
 
-ll.printLinkedList();
+let st = new Stack();
 
-ll.size();
+st.push(1);
+st.push(2);
+st.push(3);
+st.push(4);
+console.log(st.top());
+st.pop();
+console.log(st.top());

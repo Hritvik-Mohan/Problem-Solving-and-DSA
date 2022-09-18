@@ -8,8 +8,11 @@ class Node {
 
 // Singly Linked List
 class singlyLinkedList {
-    constructor() {
+    constructor() { // changes constructor also for LL class
+        // when we initialize a new linked list head will be empty
         this.head = null;
+        this.start = null; // temporary variable for problem solving
+        this.flag = null; // temporary variable for problem solving
         this.length = 0;
     }
 
@@ -70,17 +73,17 @@ class singlyLinkedList {
             let current = this.head;
             let count = 0;
             while (current) {
-                 if (count == index) {
+                if (count == index) {
                     console.log(current.data);
-                 }
-                 count++;
-                 current = current.next;
+                }
+                count++;
+                current = current.next;
             }
         }
     }
 
     removeAtStart() {
-        if(!this.head) {
+        if (!this.head) {
             return false;
         }
         let current = this.head;
@@ -111,6 +114,29 @@ class singlyLinkedList {
     }
 
 
+    valueReverseRecursive(curr) {
+        if(curr == null) {
+            return
+        }
+        this.valueReverseRecursive(curr.next);
+        if(this.start == curr || curr.next == this.start) {
+            this.flag = false;
+        }
+        if(this.flag == true) {
+            let temp = this.start.data;
+            this.start.data = curr.data;
+            curr.data = temp;
+            this.start = this.start.next;
+        }
+    }
+
+    reverseLLValueRecursive() {
+        this.start = this.head;
+        this.flag = true;
+        this.valueReverseRecursive(this.head);
+    }
+
+
     printLinkedList() {
         let current = this.head;
 
@@ -118,7 +144,7 @@ class singlyLinkedList {
         // or current is truthy i.e. current != null
         while (current) {
             // console.log(current)
-            console.log(current);
+            console.log(current.data);
             current = current.next; // update current to next node
         }
     }
@@ -130,21 +156,12 @@ class singlyLinkedList {
 
 const ll = new singlyLinkedList();
 
-// ll.insertAtStart(2);
-// ll.insertAtEnd(3);
-// ll.insertAtStart(5);
-// ll.insertAtIndex(10, 1);
-// ll.insertAtStart(7);
-// ll.printLinkedList();
-// console.log("_*_")
-// ll.removeAtStart();
-// ll.removeAt(1);
-
-
 ll.insertAtEnd(3);
 ll.insertAtEnd(5);
 ll.insertAtEnd(7);
-
+ll.printLinkedList();
+ll.reverseLLValueRecursive();
+console.log("-------------------");
 ll.printLinkedList();
 
 ll.size();

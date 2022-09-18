@@ -110,6 +110,26 @@ class singlyLinkedList {
         }
     }
 
+    reorderList() {
+        const arr = [];
+        let index = this.head;
+
+        while (index) {
+            arr.push(index);
+            index = index.next;
+        }
+
+        for (let l = 0; l < arr.length; l++) {
+            let r = arr.length - 1 - l;
+            if(l >= r) {
+                arr[l].next = null;
+                break;
+            }
+            arr[l].next = arr[r];
+            arr[r].next = arr[l + 1];
+        }
+    }
+
 
     printLinkedList() {
         let current = this.head;
@@ -118,7 +138,7 @@ class singlyLinkedList {
         // or current is truthy i.e. current != null
         while (current) {
             // console.log(current)
-            console.log(current);
+            console.log(current.data);
             current = current.next; // update current to next node
         }
     }
@@ -130,21 +150,13 @@ class singlyLinkedList {
 
 const ll = new singlyLinkedList();
 
-// ll.insertAtStart(2);
-// ll.insertAtEnd(3);
-// ll.insertAtStart(5);
-// ll.insertAtIndex(10, 1);
-// ll.insertAtStart(7);
-// ll.printLinkedList();
-// console.log("_*_")
-// ll.removeAtStart();
-// ll.removeAt(1);
-
-
+ll.insertAtEnd(1);
+ll.insertAtEnd(2);
 ll.insertAtEnd(3);
-ll.insertAtEnd(5);
-ll.insertAtEnd(7);
-
+ll.insertAtEnd(4);
+ll.printLinkedList();
+ll.reorderList();
+console.log("-------------------");
 ll.printLinkedList();
 
 ll.size();

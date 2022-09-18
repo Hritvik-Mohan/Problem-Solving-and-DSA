@@ -1,3 +1,11 @@
+// Node Class
+class Node {
+    constructor(value, next) {
+        this.value = value;
+        this.next = next;
+    }
+}
+
 class LinkedList {
     constructor() {
         this.head = null;
@@ -53,13 +61,6 @@ class LinkedList {
             current = current.next;
         }
         console.log(`${output}null`);
-    }
-}
-
-class Node {
-    constructor(value, next) {
-        this.value = value;
-        this.next = next;
     }
 }
 

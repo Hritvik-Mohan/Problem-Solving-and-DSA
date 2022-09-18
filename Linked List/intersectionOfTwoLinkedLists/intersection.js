@@ -63,6 +63,10 @@ class singlyLinkedList {
         }
     }
 
+    getHead() {
+        return this.head;
+    }
+
     getElement(index) {
         if (index < 0 || index >= this.length) {
             console.log("Array index out of bound enter valid index");
@@ -70,17 +74,17 @@ class singlyLinkedList {
             let current = this.head;
             let count = 0;
             while (current) {
-                 if (count == index) {
+                if (count == index) {
                     console.log(current.data);
-                 }
-                 count++;
-                 current = current.next;
+                }
+                count++;
+                current = current.next;
             }
         }
     }
 
     removeAtStart() {
-        if(!this.head) {
+        if (!this.head) {
             return false;
         }
         let current = this.head;
@@ -118,7 +122,7 @@ class singlyLinkedList {
         // or current is truthy i.e. current != null
         while (current) {
             // console.log(current)
-            console.log(current);
+            console.log(current.data);
             current = current.next; // update current to next node
         }
     }
@@ -128,23 +132,31 @@ class singlyLinkedList {
     }
 }
 
-const ll = new singlyLinkedList();
+const ll1 = new singlyLinkedList();
+const ll2 = new singlyLinkedList();
 
-// ll.insertAtStart(2);
-// ll.insertAtEnd(3);
-// ll.insertAtStart(5);
-// ll.insertAtIndex(10, 1);
-// ll.insertAtStart(7);
-// ll.printLinkedList();
-// console.log("_*_")
-// ll.removeAtStart();
-// ll.removeAt(1);
-
-
+ll.insertAtEnd(1);
+ll.insertAtEnd(2);
 ll.insertAtEnd(3);
-ll.insertAtEnd(5);
-ll.insertAtEnd(7);
-
+ll.insertAtEnd(4);
+ll.printLinkedList();
+ll.getIntersectionNode();
+console.log("-------------------");
 ll.printLinkedList();
 
 ll.size();
+
+let head1 = ll1.getHead();
+let head2 = ll2.getHead();
+
+var getIntersectionNode = function(headA, headB) {
+    let a = headA, b = headB
+    while (a !== b) {
+        a = !a ? headB : a.next
+        b = !b ? headA : b.next
+    }
+    return a
+};
+
+
+console.log(getIntersectionNode(head1, head2))
