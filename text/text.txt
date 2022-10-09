@@ -1,0 +1,6 @@
+This is 
+also a file created using vim and git bash
+but txt
+
+text number
+
