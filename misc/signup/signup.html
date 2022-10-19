@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <h4>It's quick and easy.</h4>
+
+    <form>
+        <label for="fname">Enter First Name</label>
+        <br>
+        <input type="text" name="fname" placeholder="Your First Name" />
+        <br>
+        <label>Enter Last Name</label>
+        <br>
+        <input type="text" name="lname" placeholder="Your Last Name" />
+        <br>
+        <label for="email">Enter Email</label>
+        <br>
+        <input type="email" name="email" placeholder="Your Email">
+        <br>
+        <label for="password">Enter Password</label>
+        <br>
+        <input type="password" name="password" placeholder="Your Password">
+        <br>
+        <label for="dob">Enter date of Birth</label>
+        <br>
+        <input type="date">
+        <br>
+        <label for="mobile">Enter Mobile Number</label>
+        <br>
+        <input type="number" placeholder="Country Code">
+        <input type="number" placeholder="Phone Number">
+        <br>
+        <label for="gender">Please Select your Gender</label>
+        <br>
+        <input type="radio" name="gender"><label for="">Male</label>
+        <input type="radio" name="gender"><label for="">Female</label>
+        <input type="radio" name="gender"><label for="">Other</label>
+
+        <br>
+        <label for="address">Enter your address</label>
+        <br>
+        <textarea name="address" cols="30" rows="10" placeholder="Your Address"></textarea>
+        <br>
+        <label for="mobile">Enter you pin code</label>
+        <br>
+        <input type="number" placeholder="Pin code">
+        <br>
+        <label for="city">Select Your City</label>
+        <br>
+        <select name="city">
+            <option value="-1" selected disabled>Select your city</option>
+            <option value="0">Mumbai</option>
+            <option value="1">Hyderabad</option>
+            <option value="2">Banglore</option>
+            <option value="3">New Delhi</option>
+            <option value="4">Pune</option>
+        </select>
+        <br>
+        <input type="checkbox" name="tc">
+        <label for="tc">Terms & Condition</label>
+
+        <br>
+        <input type="submit" value="Sign Up">
+        <!-- <input type="button" value="Sign Up"> -->
+        <button type="reset">Clear</button>
+    </form>
+</body>
+</html>
